@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1762760883 source:d:\study\crud\main.cpp
+	<iostream>
+	"string.h"
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1762336221 source:d:\study\pointers\main.cpp
+	<iostream>
+	<Windows.h>
+	"conio.h"
+
