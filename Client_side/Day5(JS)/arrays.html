@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       // var arr=new Array();
+        var arr=[]; //empty Array
+       // arr=[10,5,"ali",true]//losely type
+        // arr[0]=100
+        // arr[1]=200
+        // arr[2]=25
+        // arr[50]=1000
+        // arr[99]=400
+        //sparsArray
+        // for(i=0;i<arr.length;i++){
+        //     console.log(arr[i])
+        // }
+        // console.log("***********************************")
+
+        // 0 in arr// in operator checks for spars indexes
+        // for(i in arr){
+        //       console.log(arr[i])
+        // }
+
+        // console.log("***********************************")
+        // for(i of arr){
+        //     console.log(i)
+        // }
+
+
+       arr=[10,30,50,42,15,58,200,14]
+          arr.push(400,25)// return new length for array
+          arr.pop()
+          arr.unshift(25,33)
+         // delete arr[0]
+         arr.shift()
+         arr.includes(300)
+         Array.of(1,5,6)
+         Array.from("js")//== "js.split("")"
+         arr.join()
+        typeof arr.join()
+         arr.join("+")
+         eval( arr.join("+"))
+         arr.reverse()
+
+         /////  callBackfuntion 
+
+         function greet(_name ,callback ){
+            console.log("Hi : "+_name);
+            callback();
+
+         }
+
+          function bye(){
+            console.log("Goood Byeeeee");
+
+          }
+         greet("ali",bye)
+
+
+
+         //// forEach 
+        //  arr.forEach(loop)
+
+
+        //  function loop(elm ){
+        //     console.log("elm : "+elm)
+        //  }
+
+
+
+         arr.forEach(
+         function (elm ){
+            console.log("elm : "+elm)
+         }
+)
+
+
+          var result=  arr.filter(function(elm){
+            // if(elm> 30){
+            //   //  return // return ;
+            //   return   elm;
+            // }
+            return elm>30;
+
+})
+
+
+
+  var grades =[80,90,100,5]
+  grades.every(function(elm){ return elm>50})
+
+ grades.some(function(elm){ return elm<50})
+
+///   [400, 14, 200, 58, 15, 42, 50, 30, 10, 33]
+console.log(arr)
+console.log("***********")
+// arr.sort(function(a,b){
+//     if(a>b)
+//     return 1;
+//     else if(a<b)
+//     return -1;
+//     else
+//     return 0;
+
+
+
+// })
+
+
+
+// arr.sort(function(a,b){
+   
+//       return a-b
+// })
+
+arr.sort(function(a,b){
+   
+      return b-a
+})
+
+
+console.log(arr)
+
+   
+
+
+
+
+
+
+
+    
+
+
+
+    </script>
+</body>
+</html>

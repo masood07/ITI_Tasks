@@ -1,0 +1,55 @@
+*{
+	margin: 0
+}
+body{
+	background-image:url(1.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+#wel{
+	background-color: lightgray;
+	width: 400px;
+	height: 400px;
+	border: 2 solid black;
+	border-radius: 15%;
+	text-align: center;
+	margin: 30px auto;
+	padding: 20px;
+}
+#sign{
+	background-color: lightgray;
+	width: 400px;
+	height: 600px;
+	border: 2 solid black;
+	border-radius: 15%;
+	text-align: center;
+	margin: 50px auto;
+	padding: 20px;
+}
+
+input[type="email"],input[type="password"],input[type="text"]
+{
+	border:0;
+	outline:0;
+	background-color: lightgray;
+	border-bottom: 2px solid black;
+	width: 75%;
+}
+input[type="text"]:active,input[type="email"]:active,input[type="password"]:active,input[type="email"]:focus,input[type="password"]:focus,input[type="text"]:focus
+{
+	border-bottom-color: red;
+}
+input[type="submit"]
+{
+	background-color: lightblue;
+	border-radius: 20%;
+	padding: 10px 20px;
+}
+a[href="Products.html"]{
+	text-decoration: none;
+	color: black;
+	font-weight: bolder;
+	padding:5px 20px;
+	background-color: lightskyblue;
+	border-radius: 15%
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+    .box{
+        border:2px solid black ;
+        width:500px;
+        height:350px;
+        background-color: lightpink;
+    }
+   </style>
+    <title>Document</title>
+</head>
+<body>
+
+   
+
+    <div class="box">
+
+        <span class="iti" id="iti">
+
+            ITI Span</span>
+
+        <!-- any comment -->
+
+        <span class="mans" id="manss"> MansouraBranch</span>
+    </div>
+
+    <script>
+        box=document.querySelector(".box")
+        box.childNodes// return text , comment , elements , lines >> text node
+         box.children// return 2 spans
+         box.firstChild// return node
+         box.lastChild
+         box.firstElementChild// return firstspan
+
+          box.laststElementChild
+
+        // box.firstElementChild
+        // box.laststElementChild
+
+        manss.previousSibling.previousElementSibling
+      newSpan=document.createElement("span")
+      newSpan.innerText="iti mansoura"
+      newSpan.style.backgroundColor="magenta"
+      manss.before(newSpan)
+      manss.after(newSpan)
+
+
+      box.replaceChild(newSpan,iti)
+
+
+      newBox=box.cloneNode(true)
+      box.onclick=function(){
+        document.body.appendChild(newBox)
+      }
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj={
+         // key value
+         key1:"value1"
+
+        }// literal Declaration 
+
+        var car={
+            model:2026,
+            color:"black",
+            motor:"1600cc",
+            isAvailable:function(){
+                console.log("Car is Available Nooow ")
+            },
+            getPrice:function(par=0){
+                 if(par>100000)
+                 console.log("car price = 900000")
+                else
+                 console.log("car price = 1200000")
+
+
+            },
+            strangecolor:true,
+            classes:["1st","2nd","3rd"],
+            sponsor:{fname:"Ellithy",address:"Cairo"}
+        }
+
+
+        car.color// getting
+       // car.color="white"
+
+       car._name="merceeds Benz"
+       // in operator 
+        
+       "color" in car  // true
+        "y" in car // false
+        car.hasOwnProperty("color")
+       car.hasOwnProperty("toString")
+
+       car.sponsor.fname="Mansour"
+
+
+         keys=Object.keys(car)
+
+
+    //    for(i in car){
+    //      console.log(  i+ ":"+ car[i])
+    //      }
+/* for of */
+
+    var car2=car;
+   // Object.freeze(car)
+
+  student={name:"ali",age:23}
+  s1=structuredClone(student)
+
+    
+    </script>
+</body>
+</html>

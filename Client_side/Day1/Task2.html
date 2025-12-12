@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>task2</title>
+</head>
+<body>
+	<pre>
+		&#35;include&lt;stdio.h&gt;
+		&#35;include&lt;conio.h&gt;
+		int exp(int base, int power)
+		{
+			if(power==0)
+			{
+				return 1;
+			}
+			else
+			{
+				power--;
+				return base*exp(base,power);
+			}
+		}
+		main()
+		{
+			int x=2,y=3;
+			clrscr();
+			printf("\n %d^%d=%d",x,y,exp(x,y));
+			getch();return 0;
+		}
+	</pre>
+</body>
+</html>

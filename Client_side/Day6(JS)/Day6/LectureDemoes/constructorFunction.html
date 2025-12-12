@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function Employee(_name,_age,_sal){
+            this.name=_name;
+            this.age=_age;
+             this.salary=_sal
+
+             //setters, getters 
+            //  this.setSalary=function(num){
+            //     if(num<0)
+            //     console.log("%c Wrong Salary","color:red")
+            //     else
+            //     this.salary=num;
+            //     }
+
+
+            //     this.getSalary=function(){
+            //         return this.salary;
+            //     }
+
+                // 
+                this.print=function(){
+
+                    console.log("Name ="+this.name+" Age= "+this.age +" Salary = "+this.salary)
+                }
+
+        }
+
+        Employee()// function Call 
+        emp=new Employee("ali",25,5000)// constructor declaration 
+        emp.constructor.name
+
+        Emps=[new Employee("ziad",25,5000),
+            new Employee("sara",22,9000),
+            new Employee("Kareem",19,3000),
+            new Employee("Doaa",30,20000),
+            new Employee("bassem",50,23000)
+
+        ]
+
+
+        Emps.forEach(function(elm){
+            elm.print()
+        })
+
+        console.log("***********************")
+        result= Emps.filter(function(elm){ return elm.salary>9000})
+      
+        result.forEach(function(elm){
+            elm.print()
+        })
+        console.log("***********************")
+        Emps.sort(function(a,b){
+                return a.salary-b.salary
+
+        })
+          Emps.forEach(function(elm){
+            elm.print()
+         })
+      console.log("***********************")
+          Emps.sort(function(a,b){
+
+               if(a.name.toUpperCase()>b.name.toUpperCase())
+               return 1;
+          
+             else if(a.name.toUpperCase()<b.name.toUpperCase())
+               return -1;
+            else
+            return 0;
+          })
+ Emps.forEach(function(elm){
+            elm.print()
+         })
+    </script>
+    
+</body>
+</html>

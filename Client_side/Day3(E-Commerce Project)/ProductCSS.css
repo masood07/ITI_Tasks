@@ -1,0 +1,64 @@
+*{
+    margin:0;
+}
+ol{
+	list-style-type: none;
+	display: inline-block;
+	width: 98%;
+	height: 85px;
+	background-color: lightgray;
+	border-bottom-left-radius: 3%;
+	border-bottom-right-radius: 3%;
+}
+ol li{
+	display: inline-block;
+}
+ol ol{
+	position: relative;
+	bottom: 25%;
+	margin-left: 52%;
+	height:30px;
+	width: 40%;
+}
+ol ol li{
+	margin-left: 3%;
+}
+ol li img{
+	width: 45px;
+	height: 45px;
+	padding-top: 20px;
+}
+ol li a{
+	text-decoration: none;
+	color: black;
+	font-family: algerian;
+	font-size: 25px;
+	font-weight: bolder;
+}
+ol li a:hover
+{
+    color: goldenrod;    
+}
+img{
+    display: inline-block;
+    height: 200px;
+    width:200px
+}
+div{
+    width: 550px;
+    height: 570px;
+    border:2px solid black;
+    text-align: center;
+    margin: 100px auto;
+    background-color: darkgray;
+    border-radius: 3%;
+}
+#WA{
+    width: 70px;
+    height: 70px;
+    border-radius: 50% 50%;
+    border: 2px solid green;
+}
+pre{
+   font: 20px bolder blackadderidc;
+}
