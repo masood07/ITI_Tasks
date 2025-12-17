@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D02</title>
+</head>
+<body>
+    <script>
+        //1- Create a base class Person with properties: name and age.
+        class Person{
+            #name;
+            #age;
+            constructor(_name,_age)
+            {
+                this.name=_name;
+                this.age=_age;
+            }
+            set name(_name)
+            {
+                this.#name=_name;
+            }
+            get name()
+            {
+                return this.#name;
+            }
+            set age(_age)
+            {
+                this.#age=_age;
+            }
+            get age()
+            {
+                return this.#age;
+            }
+            introduce(){
+            return `I'm ${this.#name} and I'm ${this.#age} years old`;
+            }
+        }
+        // 2-Create a subclass Teacher with property subject and method teach().
+        class Teacher extends Person{
+            #subj;
+            constructor(_name,_age,_subj){
+                super(_name,_age);
+                this.subj=_subj;
+            }
+            teach(){
+                return `${this.name} is teaching ${this.#subj}`;
+            }
+            set subj(_subj){
+                this.#subj=_subj;
+            }
+            introduce(){
+            return `${super.introduce()} , i'm a ${this.#subj} `;
+            }
+        }
+
+        // 3-Create a subclass Student with property major and method study().
+        class Student extends Person{
+            #major;
+            constructor(_name,_age,_major)
+            {
+                super(_name,_age);
+                this.major=_major;
+            }
+            study(){
+                return `${this.name} is studying ${this.#major}`;
+            }
+            set major(_major){
+                this.#major=_major;
+            }
+            get major(){
+                return this.#major;
+            }
+             introduce() {
+                return `${super.introduce()} , my major ${this.#major}`;
+            }
+        }
+        // 4-Create objects of Teacher and Student, then call their methods.
+        t=new Teacher('abdallah',30,'ES');
+        s=new Student('Tarek',22,'CS');
+        // 5-override a method introduce() in both Teacher and Student.
+        console.log('=== Teacher ===');
+        console.log(t.introduce());
+        console.log(t.teach());
+        console.log('\n=== Student ===');
+        console.log(s.introduce());
+        console.log(s.study());
+        //------------------------------------------------------------------------------------------------
+        //1-Create a base class Shape with a method calcArea().
+        class Shape{
+            #dim1;
+            #dim2;
+            constructor(_dim1,_dim2)
+            {
+                this.dim1=_dim1;
+                this.dim2=_dim2;
+            }
+            calcArea(){
+
+            }
+            set dim1(_dim1)
+            {
+                this.#dim1=_dim1;
+            }
+            get dim1()
+            {
+                return this.#dim1;
+            }
+            set dim2(_dim2)
+            {
+                this.#dim2=_dim2;
+            }
+            get dim2()
+            {
+                return this.#dim2;
+            }
+        }
+        //2-Create subclasses Rectangle and Circle, and override the calcArea() method in each.
+        class Circle extends Shape{
+            constructor(_dim1){
+                super(_dim1,_dim1);
+            }
+            calcArea(){
+                return `Area of circle= ${3.14*this.dim1*this.dim1}`;
+            }
+        }
+        class Rectangle extends Shape{
+            constructor(_dim1,_dim2){
+                super(_dim1,_dim2);
+            }
+            calcArea(){
+                return `Area of Rectangle= ${this.dim1*this.dim2}`;
+            }
+        }
+        //3-Create an array of different shapes (both rectangles and circles).
+        //4-Loop through the array and calculate the area  shapes.
+        c1=new Circle(2);
+        c2=new Circle(5);
+        t1=new Rectangle(3,5);
+        t2=new Rectangle(4,10);
+        shapes=[c1,c2,t1,t2];
+        function Area(_shapes){
+            for(i in shapes){
+            console.log(_shapes[i].calcArea());}
+        }
+        Area(shapes);
+
+
+    </script>
+</body>
+</html>
