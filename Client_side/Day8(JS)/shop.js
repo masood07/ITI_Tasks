@@ -1,0 +1,150 @@
+addEventListener("load",()=>{
+products = [
+  { id: 1, name: "Smartphone X", title: "Smartphone X Pro", description: "High-performance smartphone with OLED display.", price: 799, image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" },
+  { id: 2, name: "Laptop Air", title: "Ultra Slim Laptop", description: "Lightweight laptop for work and gaming.", price: 1299, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8" },
+  { id: 3, name: "Bluetooth Headphones", title: "Wireless Noise Cancelling", description: "Immersive sound with deep bass.", price: 199, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80" },
+  { id: 4, name: "Smartwatch", title: "Fitness Smartwatch 2025", description: "Tracks health metrics all day.", price: 149, image: "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b" },
+  { id: 5, name: "Gaming Keyboard", title: "RGB Mechanical Keyboard", description: "Blue switch mechanical keyboard.", price: 89, image: "https://images.unsplash.com/photo-1593642532973-d31b6557fa68" },
+  { id: 6, name: "Samrt Watch", title: "Ergonomic Pro Mouse", description: "Precision sensor and programmable buttons.", price: 49, image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&q=80" },
+  { id: 7, name: "4K Monitor", title: "Ultra HD 27-inch Monitor", description: "Sharp and vivid colors for work and gaming.", price: 399, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8" },
+  { id: 8, name: "DSLR Camera", title: "Professional DSLR Camera", description: "High-quality photography tool.", price: 999, image: "https://images.unsplash.com/photo-1588508065123-287b28e013da?w=500&q=80" },
+  { id: 9, name: "Wireless Speaker", title: "Portable Bluetooth Speaker", description: "Crystal clear sound on the go.", price: 59, image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&q=80" },
+  { id: 10, name: "KeyBoard Pro", title: "10-inch HD Tablet", description: "Perfect for study, movies, and work.", price: 349, image: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=500&q=80" },
+  { id: 11, name: "Speaker", title: "Virtual Reality Set", description: "Immersive VR gaming experience.", price: 299, image: "https://images.unsplash.com/photo-1591405351990-4726e331f141?w=500&q=80" },
+  { id: 12, name: "Drone", title: "4K Camera Drone", description: "Perfect aerial photography.", price: 499, image: "https://images.unsplash.com/photo-1512820790803-83ca734da794" },
+  { id: 13, name: "Wireless Charger", title: "Wireless Earbuds", description: "With active noise cancellation.", price: 129, image: "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=500&q=80" },
+  { id: 14, name: "SSD HardDesk", title: "Fast Charging 20000mAh", description: "Charge devices multiple times.", price: 39, image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&q=80" },
+  { id: 15, name: "Powe Bank", title: "50-inch 4K Smart TV", description: "Netflix, YouTube, and more built-in.", price: 699, image: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80" }
+]
+    //container to display products
+    let container=document.createElement('div');
+    container.id="container";
+    document.body.appendChild(container);
+
+    function displayProducts(filteredProducts){
+        container.innerHTML = ''; // Clear previous products
+        if(filteredProducts.length === 0){
+            let p = document.createElement('p');
+            p.innerText = "No products found";
+            p.style.cssText = "font-size:20px; font-weight:bolder; text-align:center; margin-top:20px;";
+            container.appendChild(p);
+        }
+        else{
+            for(let i=0; i < filteredProducts.length; i++)
+            {
+                let product=document.createElement('div');
+                let img=document.createElement('img');
+                img.src=filteredProducts[i].image;
+                let p1=document.createElement('p');
+                p1.innerText=filteredProducts[i].title;
+                p1.style.fontWeight='bolder';
+                p1.style.fontSize='17px';
+                let p2=document.createElement('p');
+                p2.innerText=filteredProducts[i].price+'$';
+                p2.style.fontSize='16px';
+                let cart=document.createElement('input');
+                cart.type='submit';
+                cart.value='Add to cart'
+                cart.className ='but';
+                cart.id='cart';
+                let fav=document.createElement('input');
+                fav.value='❤️';
+                fav.type="submit";
+                fav.className='but';
+                fav.id='fav';
+
+                cart.addEventListener('click',()=>{
+                    AddToCart(filteredProducts[i]);
+                })
+
+                fav.addEventListener('click',()=>{
+                    AddToFav(filteredProducts[i]);
+                })
+
+                product.appendChild(img);
+                product.appendChild(p1);
+                product.appendChild(p2);
+                product.appendChild(cart);
+                product.appendChild(fav);
+                container.appendChild(product);
+            }
+            }
+        }
+
+        displayProducts(products);
+
+        //for searching products
+        let searchInput = document.getElementById('search');
+        searchInput.addEventListener('input', function() {
+            let searchTerm = this.value.toLowerCase();
+            let filteredProducts = products.filter((product) =>{ 
+                return product.title.toLowerCase().includes(searchTerm);
+            });
+            displayProducts(filteredProducts);
+        });
+
+    let carts=[];
+    let favs=[];
+
+    if(localStorage.getItem("cart")){
+        carts=JSON.parse(localStorage.getItem("cart"));
+    }
+
+    if(localStorage.getItem("fav")){
+        favs=JSON.parse(localStorage.getItem("fav"));
+    }
+
+    function AddToCart(p){
+        let flag=true;
+        for(let i=0;i<carts.length;i++)
+        {
+            if(carts[i].id===p.id)
+            {
+                flag=false;
+            }
+        }
+        if(flag)
+        {
+            alert("added to cart");
+            carts.push(p);
+            CartToLocal(carts);
+        }
+        else{
+            alert("already exist");
+        }
+    
+    }
+
+    function AddToFav(p){
+        let flag=true;
+        for(let i=0;i<favs.length;i++)
+        {
+            if(favs[i].id===p.id)
+            {
+                flag=false;
+            }
+        }
+        if(flag)
+        {
+            alert('added to favourites');
+            favs.push(p);
+            FavToLocal(favs);
+        }
+        else
+        {
+            alert('already exist');
+        }
+    }
+
+    function CartToLocal(carts){
+        //set count property
+        for(let i in carts){
+            carts[i].count=1;
+        }
+        window.localStorage.setItem("cart",JSON.stringify(carts));
+    }
+    
+    function FavToLocal(favs){
+        window.localStorage.setItem("fav",JSON.stringify(favs));
+    }
+})
