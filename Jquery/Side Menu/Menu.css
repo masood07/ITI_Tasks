@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    font-size: 20px;
+}
+#sideMenu{
+    height: 1000px;
+    background-color: rgb(160, 203, 244);
+}
+.openSide{
+    width: 200px;
+}
+.closeSide{
+    width: 80px;
+}
+.closeitem{
+    color: rgb(99, 148, 221);
+}
+.openitem{
+    color: white;
+}
+#item1, #item2{
+    height: 50px;
+    background-color: rgb(99, 148, 221);
+    text-align: center;
+    padding-top: 30px;
+}
+#hello, #bye{
+    height: 50px;
+    background-color: rgb(130, 179, 238);
+    text-align: center;
+    padding-top: 30px;
+    display: none;
+}
